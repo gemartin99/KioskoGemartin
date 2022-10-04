@@ -163,7 +163,9 @@ int main(int argc, char **argv)
 		g = 0.60;
 		h = 1.00;
 		res = (pan * a) + (fideos * b) + (aguas * c) + (white * d) + (kinder * e) + (caramelo * f) + (kitkat * g) + (patatas * h);
-		printf("Beneficio bruto: %.2f€\n\n", res);
+		printf("Beneficio bruto: %.2f€\n", res);
+		res = res + dinero;
+		printf("En la hucha debe haber %.2f€\n\n", res);
 		//printf("%.2f\n", (pan * 0,13) + (fideos * 0,10) + (aguas * 0,31) + (white * 0,17) + (kinder * 0,20) + (caramelo * 0,24) + (kitkat * 0,15) + (patatas * 0,15));
 	}
 	fd2 = fopen(".stock.txt","w");
