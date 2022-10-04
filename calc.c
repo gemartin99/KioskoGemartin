@@ -102,8 +102,6 @@ int main(int argc, char **argv)
 	scanf("%i", &kitkat);
 	printf("Inserta el stock de patatas 🥔\n");
 	scanf("%i", &patatas);
-	printf("En la hucha hay: \n");
-	scanf("%i", &dinero);
 	if (access(".stock.txt", F_OK) != -1)
 	{
 		s_pan = get_next_line(fd);
@@ -141,7 +139,7 @@ int main(int argc, char **argv)
 		caramelo = a_caramelo - caramelo;
 		kitkat = a_kitkat - kitkat;
 		patatas = a_patatas - patatas;
-		dinero = dinero - a_dinero;
+		dinero = a_dinero;
 		a = 0.13;
 		b = 0.10;
 		c = 0.31;
@@ -152,7 +150,7 @@ int main(int argc, char **argv)
 		h = 0.15;
 		res = (pan * a) + (fideos * b) + (aguas * c) + (white * d) + (kinder * e) + (caramelo * f) + (kitkat * g) + (patatas * h);
 		printf("\n\n ⬇️  Productos vendidos hoy ⬇️  \n\n");
-		printf("\n🔸 Pan %d\n\n🔸 Fideos %d\n\n🔸 Aguas %d\n\n🔸 White %d\n\n🔸 Kinder %d\n\n🔸 Caramelo %d\n\n🔸 Kitkat %d\n\n🔸 Patatas %d\n\n🔸 Dinero en la hucha %d€\n\n", pan, fideos, aguas, white, kinder, caramelo, kitkat, patatas, dinero);
+		printf("\n🔸 Pan %d\n\n🔸 Fideos %d\n\n🔸 Aguas %d\n\n🔸 White %d\n\n🔸 Kinder %d\n\n🔸 Caramelo %d\n\n🔸 Kitkat %d\n\n🔸 Patatas %d\n\n🔸 Dinero en la hucha la ultima vez %d€\n\n", pan, fideos, aguas, white, kinder, caramelo, kitkat, patatas, dinero);
 		printf("Beneficio neto: %.2f€\n", res);
 		a = 0.80;
 		b = 1.00;
@@ -166,8 +164,9 @@ int main(int argc, char **argv)
 		printf("Beneficio bruto: %.2f€\n", res);
 		res = res + dinero;
 		printf("En la hucha debe haber %.2f€\n\n", res);
-		//printf("%.2f\n", (pan * 0,13) + (fideos * 0,10) + (aguas * 0,31) + (white * 0,17) + (kinder * 0,20) + (caramelo * 0,24) + (kitkat * 0,15) + (patatas * 0,15));
 	}
+	printf("En la hucha se deja: \n");
+	scanf("%i", &dinero);
 	fd2 = fopen(".stock.txt","w");
 	fprintf(fd2, "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", pan, fideos, aguas, white, kinder, caramelo, kitkat, patatas, dinero);
 	return (0);
